@@ -3,5 +3,36 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "cloudtara-lib": {
+      "projectType": "library",
+      "root": "projects/cloudtara-lib",
+      "sourceRoot": "projects/cloudtara-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cloudtara-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cloudtara-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cloudtara-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cloudtara-lib/src/test.ts",
+            "tsConfig": "projects/cloudtara-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/cloudtara-lib/karma.conf.js"
+          }
+        }
+      }
+    }
   }
 }
